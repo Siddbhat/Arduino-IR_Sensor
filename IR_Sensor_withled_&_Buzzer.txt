@@ -1,0 +1,37 @@
+// initilize digital pin
+int ir=7;
+int led=8;
+int buz=9;
+int x;
+
+void setup()
+{
+  //take which pin pin as input or output
+  Serial.begin(9600);
+  pinMode(7, INPUT); 
+  pinMode(8, OUTPUT); 
+  pinMode(9, OUTPUT);
+
+}
+
+void loop() 
+{
+  // put your main code here, to run repeatedly:
+  //read the data & print in the void loop
+  x=digitalRead(ir);
+  Serial.println(x);
+  delay(300);
+
+//conditions here 1 means low- no obeject detected & 0 means high -object detected
+  if(x==1)
+  {
+    digitalWrite(8,LOW);
+    digitalWrite(9,LOW);
+  }
+  else
+  {
+        digitalWrite(8,HIGH);
+        digitalWrite(9,HIGH);
+
+  }
+}
